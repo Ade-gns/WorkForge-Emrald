@@ -1,54 +1,39 @@
-import { useEffect } from "react";
 import "@/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-import { HOME } from "@/constants/testIds";
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          data-testid={HOME.emergentLink}
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+import { Toaster } from "@/components/ui/sonner";
+import Layout from "@/components/Layout";
+import Home from "@/pages/Home";
+import ExercisesPage from "@/pages/ExercisesPage";
+import Programs from "@/pages/Programs";
+import CreateProgram from "@/pages/CreateProgram";
+import Generator from "@/pages/Generator";
+import Favorites from "@/pages/Favorites";
+import Anatomy from "@/pages/Anatomy";
+import Tools from "@/pages/Tools";
+import Settings from "@/pages/Settings";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/exercices" element={<ExercisesPage baseType="all" label="Bibliothèque" title="Tous les exercices" subtitle="Filtre par muscle, matériel, difficulté ou type. Clique sur une carte pour voir tous les détails." />} />
+            <Route path="/exercices/poids-du-corps" element={<ExercisesPage baseType="poids-du-corps" label="Sans matériel" title="Exercices poids du corps" subtitle="Entraîne-toi n'importe où, sans équipement." />} />
+            <Route path="/exercices/salle" element={<ExercisesPage baseType="salle" label="En salle" title="Exercices salle de sport" subtitle="Machines, barres, haltères et poulies." />} />
+            <Route path="/programmes" element={<Programs />} />
+            <Route path="/creer" element={<CreateProgram />} />
+            <Route path="/creer/:id" element={<CreateProgram />} />
+            <Route path="/generateur" element={<Generator />} />
+            <Route path="/favoris" element={<Favorites />} />
+            <Route path="/anatomie" element={<Anatomy />} />
+            <Route path="/outils" element={<Tools />} />
+            <Route path="/parametres" element={<Settings />} />
           </Route>
         </Routes>
       </BrowserRouter>
+      <Toaster position="top-center" theme="dark" richColors />
     </div>
   );
 }

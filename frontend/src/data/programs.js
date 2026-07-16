@@ -1,0 +1,40 @@
+// Programmes prédéfinis — références aux ids d'exercices.
+const b = (id, sets, reps, rest) => ({ id, sets, reps, rest });
+
+export const PREDEFINED_PROGRAMS = [
+  { id: "debutant", name: "Débutant", goal: "Remise en forme", level: "Débutant", duration: 45, image: "https://images.unsplash.com/photo-1604233098531-90b71b1b17a6?w=800",
+    description: "Programme full body idéal pour démarrer en douceur, 3 séances / semaine.",
+    exercises: [b("squat",3,12,90), b("pompes",3,10,60), b("rowing-halteres",3,12,60), b("gainage",3,30,45), b("pont-fessier",3,15,45)] },
+  { id: "fullbody", name: "Full Body", goal: "Prise de masse", level: "Intermédiaire", duration: 60, image: "https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?w=800",
+    description: "Séance corps complet équilibrée pour progresser sur tous les groupes.",
+    exercises: [b("squat-barre",4,8,120), b("dev-couche-barre",4,8,120), b("rowing-barre",4,10,90), b("dev-militaire",3,10,90), b("curl-halteres",3,12,60), b("gainage",3,45,45)] },
+  { id: "prise-masse", name: "Prise de masse", goal: "Prise de masse", level: "Intermédiaire", duration: 75, image: "https://images.unsplash.com/photo-1692369608023-a3822e070ee9?w=800",
+    description: "Volume élevé orienté hypertrophie, split haut/bas.",
+    exercises: [b("dev-incline-halteres",4,10,90), b("dev-couche-barre",4,8,120), b("ecarte-poulie",3,15,60), b("dev-militaire",4,10,90), b("elevations-laterales",4,15,45), b("extension-poulie",3,12,60)] },
+  { id: "seche", name: "Sèche", goal: "Perte de poids", level: "Intermédiaire", duration: 45, image: "https://images.unsplash.com/photo-1638183395699-2c0db5b6afbb?w=800",
+    description: "Circuit training + cardio pour brûler des calories.",
+    exercises: [b("burpees",4,15,30), b("squat",4,20,45), b("pompes",4,15,45), b("mountain-climbers",4,40,30), b("corde-sauter",4,60,45), b("gainage",3,45,30)] },
+  { id: "force", name: "Force", goal: "Force", level: "Avancé", duration: 90, image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800",
+    description: "Charges lourdes, faibles répétitions sur les mouvements de base.",
+    exercises: [b("squat-barre",5,5,180), b("dev-couche-barre",5,5,180), b("souleve-terre",4,5,180), b("dev-militaire",4,6,150), b("rowing-barre",4,6,120)] },
+  { id: "ppl", name: "Push Pull Legs", goal: "Prise de masse", level: "Avancé", duration: 75, image: "https://images.unsplash.com/photo-1532384661798-58b53a4fbe37?w=800",
+    description: "Split classique en 3 jours : poussée, tirage, jambes.",
+    exercises: [b("dev-couche-barre",4,8,120), b("dev-militaire",3,10,90), b("extension-poulie",3,12,60), b("tractions",4,8,120), b("rowing-barre",4,10,90), b("curl-barre",3,12,60)] },
+  { id: "upper-lower", name: "Upper Lower", goal: "Prise de masse", level: "Intermédiaire", duration: 70, image: "https://images.unsplash.com/photo-1611841315886-a8ad8d02f179?w=800",
+    description: "Alternance haut du corps / bas du corps, 4 séances / semaine.",
+    exercises: [b("dev-incline-halteres",4,10,90), b("tirage-vertical",4,10,90), b("elevations-laterales",3,15,45), b("squat-barre",4,8,120), b("leg-curl",3,12,60), b("mollets-debout",4,15,45)] },
+  { id: "calisthenics", name: "Calisthenics", goal: "Force", level: "Intermédiaire", duration: 60, image: "https://images.pexels.com/photos/13993572/pexels-photo-13993572.jpeg?w=800",
+    description: "100% poids du corps pour la force relative et le contrôle.",
+    exercises: [b("tractions",4,8,120), b("dips",4,10,90), b("pompes",4,15,60), b("pike-pushups",3,10,90), b("releve-jambes",3,10,60), b("suspension-barre",3,30,60)] },
+  { id: "street-workout", name: "Street Workout", goal: "Force", level: "Avancé", duration: 60, image: "https://images.pexels.com/photos/10086629/pexels-photo-10086629.jpeg?w=800",
+    description: "Figures et force au poids du corps en extérieur.",
+    exercises: [b("tractions",5,6,120), b("dips",5,8,90), b("pike-pushups",4,8,90), b("releve-jambes",4,12,60), b("pompes",4,20,60)] },
+  { id: "hiit", name: "HIIT", goal: "Perte de poids", level: "Intermédiaire", duration: 30, image: "https://images.unsplash.com/photo-1633394782240-f81aba3f850d?w=800",
+    description: "Intervalles haute intensité pour un maximum de dépense en peu de temps.",
+    exercises: [b("burpees",5,20,20), b("mountain-climbers",5,40,20), b("squat",5,25,20), b("corde-sauter",5,45,20), b("pompes",5,15,20)] },
+  { id: "remise-forme", name: "Remise en forme", goal: "Remise en forme", level: "Débutant", duration: 40, image: "https://images.unsplash.com/photo-1571019613576-2b22c76fd955?w=800",
+    description: "Reprise progressive mêlant renforcement doux et mobilité.",
+    exercises: [b("chat-vache",2,10,0), b("pont-fessier",3,15,45), b("pompes",3,8,60), b("squat",3,12,60), b("gainage",3,25,45), b("fente-mobilite",2,8,0)] },
+];
+
+export const getProgram = (id) => PREDEFINED_PROGRAMS.find((p) => p.id === id);

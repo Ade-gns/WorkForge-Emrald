@@ -1,0 +1,49 @@
+{
+  "summary": "Comprehensive frontend testing of WorkForge PWA (French, 100% client-side). Tested navigation (11 sidebar items), exercises browsing/search/filters, favorites persistence, exercise detail dialog, predefined programs (11 cards), program detail + copy-to-builder, custom program builder (add/reorder/save/edit/delete), smart generator, interactive anatomy (chips + SVG zones + type tabs + ?muscle= query), tools (rest timer, stopwatch, BMI, Calories, BMR, 1RM), settings (beep toggle, default rest, export JSON, clear data). PWA manifest & service worker registered successfully. Found and fixed 1 critical state bug in ExercisesPage; documented remaining minor issues.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "AnatomyBody.jsx",
+        "issue": "Duplicate data-testid 'anatomy-zone-mollets' — 'Zone id=\"mollets\"' exists in both AnatomyFront (line 72) and AnatomyBack (line 105). Selectors targeting anatomy-zone-mollets match multiple elements ambiguously.",
+        "selector": "[data-testid=\"anatomy-zone-mollets\"]",
+        "priority": "LOW"
+      },
+      {
+        "component": "AnatomyBody.jsx SVG zones",
+        "issue": "Some SVG zone clicks intermittently don't register (e.g. anatomy-zone-quadriceps after clicking anatomy-zone-dos). Possible overlapping path element or pointer-events issue. Chips work as fallback so functionality still available.",
+        "selector": "[data-testid^=\"anatomy-zone-\"]",
+        "priority": "LOW"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Generator preview",
+        "issues": ["Regenerate button produces a program with the same generated-name (deterministic based on goal/sessions). While exercises may vary, users may think regenerate did nothing. Consider adding a small variant suffix or shuffle indicator."]
+      }
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "OPTIONAL: Differentiate 'anatomy-zone-mollets' testid between front and back (e.g. anatomy-zone-mollets-front / anatomy-zone-mollets-back).",
+    "OPTIONAL: Verify SVG zone hit-boxes in AnatomyBody — some overlapping shapes may intercept clicks intended for adjacent zones.",
+    "OPTIONAL (UX): Make Generator regenerate produce a visibly different name/label so users know regenerate had an effect."
+  ],
+  "critical_code_review_comments": [
+    "FIXED by testing agent: In ExercisesPage.jsx, `<ExerciseGrid baseType={baseType} />` didn't reset internal 'type' state when navigating between /exercices, /exercices/poids-du-corps and /exercices/salle. React Router reconciles the same ExercisesPage component across these routes and props change but useState(baseType) only reads initial value. This caused all three routes to show the same filtered results (e.g. salle showed 44 exercises instead of 24). Applied minimal fix: added key={baseType} to force remount. Verified: /exercices=44, poids-du-corps=20, salle=24, back to all=44.",
+    "Storage hook (useLocalStore) uses custom 'wf-store' events for cross-component sync but does NOT listen to native 'storage' events — so if the app is opened in two tabs, changes in one tab won't propagate to the other. Acceptable for MVP but worth noting.",
+    "sw.js caches only 5 core files; images (pexels) and JS bundles are cached opportunistically on first fetch — offline experience will be partial until user visits each page online first."
+  ],
+  "updated_files": ["/app/frontend/src/pages/ExercisesPage.jsx"],
+  "success_rate": {"backend": "N/A (no backend)", "frontend": "~98%"},
+  "test_credentials": "None required (no auth/backend).",
+  "seed_data_creation": "None persisted. All test data (favorites, custom programs, settings) was created via UI and cleaned up via Settings > clear-data-btn or programmatic localStorage cleanup at end of scripts.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Frontend-only PWA. Uses REACT_APP_BACKEND_URL from frontend/.env as base URL (no /api routes). All persistence via localStorage keys: wf_fav_exercises, wf_fav_programs, wf_custom_programs, wf_settings. Data 44 exercises (20 poids-du-corps + 24 salle), 15 muscle groups, 11 predefined programs. Fixed a state-sync bug in ExercisesPage by adding key={baseType}. Remaining minor issues are: duplicate anatomy-zone-mollets testid and occasional SVG zone hit-box issues (chips workaround exists).",
+  "rca of the issue": "ExerciseGrid state persistence bug: React Router 6 mounts <ExercisesPage> once and only re-renders (props change) when routing between /exercices, /exercices/poids-du-corps, /exercices/salle because they share the same component in the element prop. `const [type, setType] = useState(baseType)` only sets state on initial mount, so the internal 'type' filter kept the initial baseType from whichever route mounted first. Fix: added `key={baseType}` to force React to unmount+remount ExerciseGrid whenever baseType changes. Reproduction: (1) go to /exercices/poids-du-corps (20), (2) click sidebar 'Exercices salle' — showed 20 instead of 24. Verified fix on production URL."
+}
