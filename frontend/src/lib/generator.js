@@ -79,7 +79,7 @@ export function generateProgram({ goal, level, duration, sessions, equipment }) 
 
   return {
     id: "gen-" + Date.now(),
-    name: `Programme ${goalLabel(goal)} — ${sessions}x/sem`,
+    name: `Programme ${goalLabel(goal)} — ${sessions}x/sem · V${Math.floor(Math.random() * 90 + 10)}`,
     goal: goalLabel(goal),
     level,
     duration,

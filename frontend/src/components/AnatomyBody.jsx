@@ -6,10 +6,10 @@ const zoneStyle = (id, selected) =>
     selected === id ? "fill-emerald-500" : "fill-zinc-700 hover:fill-emerald-500/60"
   }`;
 
-function Zone({ id, selected, onSelect, children, label }) {
+function Zone({ id, selected, onSelect, children, label, testid }) {
   return (
     <g
-      data-testid={`anatomy-zone-${id}`}
+      data-testid={testid || `anatomy-zone-${id}`}
       onClick={() => onSelect(id)}
       className={zoneStyle(id, selected)}
       role="button"
@@ -69,7 +69,7 @@ export function AnatomyFront({ selected, onSelect }) {
           <ellipse cx="84" cy="240" rx="10" ry="42" />
           <ellipse cx="116" cy="240" rx="10" ry="42" />
         </Zone>
-        <Zone id="mollets" selected={selected} onSelect={onSelect} label="Mollets">
+        <Zone id="mollets" selected={selected} onSelect={onSelect} label="Mollets" testid="anatomy-zone-mollets-front">
           <ellipse cx="79" cy="334" rx="7" ry="24" />
           <ellipse cx="121" cy="334" rx="7" ry="24" />
         </Zone>
@@ -102,7 +102,7 @@ export function AnatomyBack({ selected, onSelect }) {
           <ellipse cx="84" cy="250" rx="10" ry="40" />
           <ellipse cx="116" cy="250" rx="10" ry="40" />
         </Zone>
-        <Zone id="mollets" selected={selected} onSelect={onSelect} label="Mollets">
+        <Zone id="mollets" selected={selected} onSelect={onSelect} label="Mollets" testid="anatomy-zone-mollets-back">
           <ellipse cx="79" cy="336" rx="7" ry="24" />
           <ellipse cx="121" cy="336" rx="7" ry="24" />
         </Zone>
