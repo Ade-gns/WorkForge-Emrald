@@ -1,0 +1,108 @@
+{
+  "theme": "dark",
+  "archetype": "THE PERFORMANCE PRO",
+  "typography": {
+    "headings": {
+      "family": "Poppins",
+      "styles": "tracking-tight font-black"
+    },
+    "body": {
+      "family": "Inter",
+      "styles": "leading-relaxed"
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl",
+      "h3": "text-xl sm:text-2xl",
+      "h4": "text-lg sm:text-xl",
+      "body": "text-base",
+      "small": "text-sm",
+      "labels": "text-xs tracking-[0.2em] uppercase"
+    }
+  },
+  "colors": {
+    "background": "#0a0a0a",
+    "surface": "#121212",
+    "surface_elevated": "#1a1a1a",
+    "primary": "#10b981",
+    "secondary": "#facc15",
+    "text_primary": "#ffffff",
+    "text_secondary": "#a1a1aa",
+    "border": "#27272a",
+    "ring": "#10b981"
+  },
+  "visual_enhancers": {
+    "surfaces": "Grid Borders and High-Contrast Tactical Minimalism. Use 1px solid strokes (border-border) instead of soft shadows.",
+    "effects": "Subtle grain textures on empty states. Glow effects (blur-md) behind primary action buttons in Emerald.",
+    "glassmorphism": "For sticky headers or floating elements: backdrop-blur-xl bg-black/60 with border-white/10."
+  },
+  "layout": {
+    "spacing": "Generous Spacing: p-6 or p-8 for cards, gap-6 for grids. Use Tailwind scale.",
+    "grid": "MODE B: High Density Grid for Dashboards. grid-cols-1 md:grid-cols-3 lg:grid-cols-4. Tight gaps (gap-4 or gap-6). h-full on children.",
+    "sidebar": "Left fixed sidebar (w-64) on desktop, hidden behind a hamburger on mobile. Nav items use 10 distinct categories."
+  },
+  "components": {
+    "sidebar": "Pure HTML/Tailwind for layout. Active state: emerald green left border with bg-emerald-900/20.",
+    "exercise_cards": "Shadcn Card. Flat rectangular. Image top (max-h-48 object-cover). Muscle tags (yellow/emerald badges). 1px border. No drop shadow.",
+    "anatomy_interactive": "Custom SVG component with clickable paths for muscle groups. Active muscles fill with emerald green. Use generic human silhouette SVG.",
+    "program_builder": "Drag and drop interface. Use @dnd-kit/core or similar. Provide visual drop zones.",
+    "tools": "Shadcn Tabs component to switch between Rest Timer, Stopwatch, BMI, BMR, and 1RM Calculators.",
+    "search": "Instant search bar in header with command palette style interface."
+  },
+  "motion": {
+    "hover": "Explicit hover states (e.g. hover:bg-zinc-800 hover:text-white). Button hover: slight lift (-translate-y-1).",
+    "transitions": "transition-transform 0.2s ease, opacity 0.2s ease. NO transition-all.",
+    "entrance": "Staggered fade-in for lists/grids."
+  },
+  "accessibility": {
+    "contrast": "Minimum 4.5:1. Never use gray-on-gray.",
+    "testing": "All interactive elements MUST include data-testid attribute in kebab-case (e.g., data-testid='start-workout-btn')."
+  },
+  "media": {
+    "image_urls": [
+      {
+        "url": "https://images.pexels.com/photos/5327478/pexels-photo-5327478.jpeg",
+        "category": "hero_or_program_cover",
+        "description": "Bodybuilder lifting weights"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1634225251578-d5f6ffced78a",
+        "category": "bodyweight_category_cover",
+        "description": "Man doing pull up"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1637430308606-86576d8fef3c",
+        "category": "gym_category_cover",
+        "description": "Modern gym dark lighting"
+      }
+    ],
+    "icons": "lucide-react for all interface icons."
+  },
+  "instructions_to_main_agent": [
+    "Develop a 100% client-side Progressive Web App (PWA) using React (.js files) and Tailwind CSS without any backend.",
+    "Use LocalStorage or IndexedDB for all data persistence.",
+    "Implement a 10-item Left Sidebar for navigation: Accueil, Exercices, Exercices poids du corps, Exercices salle, Programmes prédéfinis, Créer un programme, Générateur intelligent, Favoris, Anatomie interactive, Paramètres.",
+    "Create an interactive anatomy SVG component (front and back) where clicking a muscle group filters the exercise library.",
+    "Build a drag-and-drop program builder allowing users to reorder exercises, sets, reps, and rest times.",
+    "Develop client-side calculators for BMI, calories, BMR, and 1RM, plus a rest timer and stopwatch.",
+    "Ensure dark mode is the default and only theme, using Emerald Green (#10b981) and Yellow (#facc15).",
+    "Apply the 'PERFORMANCE PRO' archetype: tactical minimalism, 1px solid borders, and deep obsidian backgrounds.",
+    "Do not use generic 'Inter' for headings. Use 'Poppins' for all headings and 'Inter' only for body text.",
+    "CRITICAL: DO NOT use complete transparent background in header, overlays, or any surface that has content under it (e.g., Dropdown with transparent background). Use solid backgrounds or glassmorphism (bg-black/60 backdrop-blur-xl).",
+    "Integrate Shadcn UI components where appropriate (Tabs, Dialogs, Inputs, Slider, Select, Accordion, Sonner), overriding their default styles to match the dark aesthetic and custom borders."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Do not converge toward generic AI slop. Create distinctive, layered designs with z-index hierarchy.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Do not center align the app container. No '.App { text-align: center; }' in CSS.",
+    "Always use modern button styles (pill-shaped or sharp) with interaction animations & color relevant to the app style.",
+    "NEVER use AI assistant emoji characters for icons. Use lucide-react.",
+    "Every interaction needs micro-animations - hover states, transitions, entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Do NOT apply universal transition (transition: all). This breaks transforms. Add transitions for specific properties.",
+    "All interactive and key informational elements MUST include a 'data-testid' attribute to facilitate robust automated testing.",
+    "Use 'sonner' for toast notifications (located in /app/frontend/src/components/ui/sonner.jsx if added).",
+    "Prioritize using pre-existing components from src/components/ui when applicable.",
+    "Write components in .js/.jsx files as specified."
+  ]
+}
