@@ -37,11 +37,11 @@ export default function Anatomy() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <p className="mb-2 text-center text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">Face</p>
-              <div className="h-[360px]"><AnatomyFront selected={selected} onSelect={onSelect} /></div>
+              <div className="h-[420px]"><AnatomyFront selected={selected} onSelect={onSelect} /></div>
             </div>
             <div>
               <p className="mb-2 text-center text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">Dos</p>
-              <div className="h-[360px]"><AnatomyBack selected={selected} onSelect={onSelect} /></div>
+              <div className="h-[420px]"><AnatomyBack selected={selected} onSelect={onSelect} /></div>
             </div>
           </div>
           <div className="mt-4 flex flex-wrap gap-1.5">
