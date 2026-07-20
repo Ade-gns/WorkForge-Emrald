@@ -1,4 +1,6 @@
 // Bibliothèque d'exercices — 100% locale, aucune donnée distante.
+import { EXERCISE_IMAGES } from "./exerciseImages";
+
 const IMG = {
   chest: "https://images.unsplash.com/photo-1692369608023-a3822e070ee9?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
   chestPush: "https://images.unsplash.com/photo-1714646442330-9068099f5521?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
@@ -540,3 +542,8 @@ export const EXERCISES = [
 ];
 
 export const getExercise = (id) => EXERCISES.find((x) => x.id === id);
+
+// Applique les images sur-mesure générées (une par exercice).
+EXERCISES.forEach((ex) => {
+  if (EXERCISE_IMAGES[ex.id]) ex.image = EXERCISE_IMAGES[ex.id];
+});
