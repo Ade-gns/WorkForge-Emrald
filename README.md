@@ -1,6 +1,7 @@
-========================================================
+--------------------------------------------------------
  WORKFORGE — Application de Musculation & Fitness (PWA)
-========================================================
+--------------------------------------------------------
+
 
 Application web moderne dediee au fitness et a la musculation.
 Site de consultation : decouvrir des exercices, creer ses propres
