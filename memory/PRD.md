@@ -7,7 +7,7 @@ Application web moderne de fitness/musculation, sans compte ni backend. Consulta
 - **Frontend uniquement** : React 19 + React Router 7 + Tailwind + shadcn/ui + lucide-react + sonner.
 - **AUCUN backend, AUCUNE base distante, AUCUNE auth.** Persistance via `localStorage` (clés `wf_*`).
 - **PWA** : `public/manifest.json` + `public/sw.js` (service worker, cache offline-first) enregistré dans `index.js`. Icônes 192/512.
-- Données statiques : `src/data/exercises.js` (126 exercices), `muscles.js` (15 groupes), `programs.js` (11 programmes).
+- Données statiques : `src/data/exercises.js` (140 exercices), `muscles.js` (15 groupes), `programs.js` (11 programmes).
 - Logique générateur : `src/lib/generator.js`. Stockage/hooks : `src/lib/storage.js`.
 
 ## Personas
@@ -33,7 +33,7 @@ Pratiquant de musculation (débutant → avancé) souhaitant consulter des exerc
 - **P2** : Drag-and-drop réel dans le créateur (actuellement boutons ↑/↓).
 - **P2** : Mode chronométré de séance guidée (enchaînement exercices + repos auto).
 - **P2** : Suivi de progression / historique des séances.
-- **P3** : ~~Élargir la bibliothèque~~ **FAIT (août 2026)** — 97 → 126 exercices. +29 exercices ajoutés côté salle (crunch/curl/dips/développé/oiseau/shrugs à la machine, rowing Smith, tirage iso-latéral, leg curl debout, glute ham raise, leg extension unilatéral, mollets presse/haltères/barre, hyperextension inversée/partenaire, good morning assis, pull-through & kickback poulie, tirage menton poulie, curl poignet barre, extension poignet, finger curls, vélo elliptique, vélo de salle, tapis de course), comblant les groupes musculaires sous-représentés (mollets, trapèzes, avant-bras, lombaires, fessiers, ischio) et le matériel "Machine" (11 → 29 exercices). Toutes avec vraies photos free-exercise-db.
+- **P3** : ~~Élargir la bibliothèque~~ **FAIT (août 2026)** — 97 → 140 exercices, en 2 vagues. Vague 1 (+29) : machines de salle (crunch/curl/dips/développé/oiseau/shrugs machine, rowing Smith, tirage iso-latéral, leg curl debout, glute ham raise, leg extension unilatéral, mollets presse, hyperextension inversée, vélo elliptique/salle, tapis de course) + compléments poulie/barre (pull-through, kickback, tirage menton, curl/extension poignets, finger curls, good morning assis, hyperextension partenaire). Vague 2 (+14) : mollets élastique/haltère assis, traction scapulaire, pronation/supination poignet, 3 exercices kettlebell (swing, rowing, développé — 1re fois que ce matériel est utilisé), et 6 exercices mobilité (posture de l'enfant, bascule du bassin, genoux vers la poitrine, étirement mollets/quadriceps, cercles de bras). Groupes les plus faibles remontés à 7-9 exercices minimum (mollets, trapèzes, avant-bras, lombaires, mobilité — étaient à 3-4). Matériel "Machine" 11 → 29, "Kettlebell" 0 → 3. Toutes avec vraies photos free-exercise-db, chaque lot vérifié visuellement image par image (3 exercices écartés en vague 2 car photos mal étiquetées dans la source : shrug poulie montrait un tirage triceps, étirements adducteurs/pectoraux montraient d'autres mouvements).
 
 ## Prochaines actions
 Recueillir le retour utilisateur, puis prioriser animations d'exercices et/ou séance guidée chronométrée.

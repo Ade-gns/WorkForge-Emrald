@@ -120,4 +120,20 @@ export const EXERCISE_ANIMATIONS = {
   "velo-elliptique": A("velo-elliptique"),
   "velo-salle": A("velo-salle"),
   "tapis-course": A("tapis-course"),
+
+  // Ajouts 4 — mobilité, kettlebell & compléments
+  "mollets-elastique": A("mollets-elastique"),
+  "mollets-haltere-assis": A("mollets-haltere-assis"),
+  "traction-scapulaire": A("traction-scapulaire"),
+  "pronation-poignet": A("pronation-poignet"),
+  "supination-poignet": A("supination-poignet"),
+  "kettlebell-swing": A("kettlebell-swing"),
+  "rowing-kettlebell": A("rowing-kettlebell"),
+  "presse-kettlebell": A("presse-kettlebell"),
+  "posture-enfant": A("posture-enfant"),
+  "bascule-bassin": A("bascule-bassin"),
+  "genoux-poitrine": A("genoux-poitrine"),
+  "etirement-mollets-mur": A("etirement-mollets-mur"),
+  "cercles-bras": A("cercles-bras"),
+  "etirement-quadriceps": A("etirement-quadriceps"),
 };
