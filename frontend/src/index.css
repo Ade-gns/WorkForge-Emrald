@@ -87,6 +87,24 @@ h1, h2, h3, h4, h5, .font-display {
   .wf-anim-frame { animation: none !important; opacity: 0 !important; }
 }
 
+/* Exercices sans 2e photo réelle : léger pouls (luminosité/opacité) pour rester homogène avec les autres cartes. */
+@keyframes wf-pulse-motion {
+  0%, 100% { opacity: 1; filter: brightness(1) saturate(1); }
+  50% { opacity: 0.94; filter: brightness(1.12) saturate(1.15); }
+}
+.wf-css-motion {
+  animation: wf-pulse-motion 1.6s ease-in-out infinite;
+}
+.wf-css-motion.wf-anim-hover {
+  animation-play-state: paused;
+}
+.group:hover .wf-css-motion.wf-anim-hover {
+  animation-play-state: running;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wf-css-motion { animation: none !important; }
+}
+
 .grain::before {
   content: "";
   position: absolute;

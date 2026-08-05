@@ -3,6 +3,7 @@
 const A = (id) => [`${process.env.PUBLIC_URL || ""}/animations/${id}/0.jpg`, `${process.env.PUBLIC_URL || ""}/animations/${id}/1.jpg`];
 
 export const EXERCISE_ANIMATIONS = {
+  "abduction-hanche": A("abduction-hanche"),
   "adducteurs": A("adducteurs"),
   "barre-front": A("barre-front"),
   "bicycle-crunch": A("bicycle-crunch"),
@@ -62,6 +63,7 @@ export const EXERCISE_ANIMATIONS = {
   "pompes-declinees": A("pompes-declinees"),
   "pompes-diamant": A("pompes-diamant"),
   "pompes-inclinees": A("pompes-inclinees"),
+  "pont-fessier": A("pont-fessier"),
   "presse": A("presse"),
   "pull-over": A("pull-over"),
   "rameur": A("rameur"),

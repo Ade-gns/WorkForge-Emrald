@@ -6,7 +6,15 @@ export default function AnimatedExerciseImage({ exercise, className = "", mode =
   const frames = EXERCISE_ANIMATIONS[exercise.id];
 
   if (!frames) {
-    return <img src={exercise.image} alt={exercise.name} loading={loading} className={className} />;
+    // Pas de 2e photo réelle disponible : léger pouls CSS pour garder une carte "vivante".
+    return (
+      <img
+        src={exercise.image}
+        alt={exercise.name}
+        loading={loading}
+        className={`${className} wf-css-motion ${mode === "hover" ? "wf-anim-hover" : ""}`}
+      />
+    );
   }
 
   const [frame0, frame1] = frames;
