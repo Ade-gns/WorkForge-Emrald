@@ -14,7 +14,7 @@ connexion, aucune donnee envoyee sur Internet.
  FONCTIONNALITES
 --------------------------------------------------------
 
-- Bibliotheque de 97 exercices classes par 15 groupes
+- Bibliotheque de 126 exercices classes par 15 groupes
   musculaires (pectoraux, dos, epaules, trapezes, biceps,
   triceps, avant-bras, abdominaux, lombaires, fessiers,
   quadriceps, ischio-jambiers, mollets, cardio, mobilite).
@@ -88,7 +88,7 @@ frontend/
     icon-512.png
   src/
     data/
-      exercises.js       Les 97 exercices
+      exercises.js       Les 126 exercices
       exerciseImages.js  Images sur-mesure (1 par exercice)
       muscles.js         Groupes musculaires
       programs.js        Programmes predefinis
