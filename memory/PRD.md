@@ -28,7 +28,7 @@ Pratiquant de musculation (débutant → avancé) souhaitant consulter des exerc
 - Testé (frontend) : ~98% de réussite. Bug de state ExercisesPage corrigé (key). Testids anatomie mollets front/back dédupliqués.
 
 ## Backlog priorisé
-- **P1** : Vraies animations GIF/vidéo par exercice (actuellement images HQ statiques uniquement — MOCK d'animation).
+- **P1** : ~~Vraies animations GIF/vidéo par exercice~~ **FAIT (août 2026)** — 84/97 exercices ont une animation 2 photos réelles (départ/fin, alternance en fondu CSS) sourcées de free-exercise-db (domaine public, Unlicense, aucune attribution requise). Assets bundlés localement dans `public/animations/{id}/{0,1}.jpg` (~7 Mo total), composant `AnimatedExerciseImage.jsx` (hover sur les cartes, auto dans la fiche détail), fallback transparent vers l'image statique si pas de correspondance. Les 13 exercices restants (pike-pushups, curl-supin-elastique, suspension-barre, gainage-lateral, hollow-hold, shoulder-taps, bird-dog, pont-fessier, abduction-hanche, nordic-curl, burpees, jumping-jacks, montees-genoux) n'avaient pas d'équivalent fiable dans la base libre — gardent l'image statique.
 - **P1** : Migrer vers IndexedDB pour de gros volumes / synchro multi-onglets (storage events).
 - **P2** : Drag-and-drop réel dans le créateur (actuellement boutons ↑/↓).
 - **P2** : Mode chronométré de séance guidée (enchaînement exercices + repos auto).

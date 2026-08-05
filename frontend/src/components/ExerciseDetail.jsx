@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { DifficultyBadge } from "@/components/DifficultyBadge";
+import AnimatedExerciseImage from "@/components/AnimatedExerciseImage";
 import { muscleName } from "@/data/muscles";
 import { useFavoriteExercises } from "@/lib/storage";
 
@@ -35,7 +36,7 @@ export default function ExerciseDetail({ exercise, open, onOpenChange }) {
         className="max-h-[90vh] max-w-2xl overflow-y-auto border-border bg-card p-0"
       >
         <div className="relative h-56 w-full overflow-hidden">
-          <img src={exercise.image} alt={exercise.name} className="h-full w-full object-cover" />
+          <AnimatedExerciseImage exercise={exercise} mode="auto" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
           <div className="absolute bottom-4 left-5 right-5">
             <div className="mb-2 flex flex-wrap gap-2">
